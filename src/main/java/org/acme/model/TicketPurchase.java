@@ -1,26 +1,42 @@
 package org.acme.model;
 
 import java.time.LocalDateTime;
-
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+@Entity
 public class TicketPurchase {
-
-    private Long id;
-    private String ticketType; // "Jednokratna" ili "Mesečna"
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(nullable = false)
+    private String ticketType; 
+    @Column(nullable = false)
     private LocalDateTime purchaseTime;
+    @ManyToOne
+@JoinColumn(name = "user_id")
     private User user;
 
-    public TicketPurchase(Long id, String ticketType, LocalDateTime purchaseTime, User user) {
+    public TicketPurchase(int id, String ticketType, LocalDateTime purchaseTime, User user) {
         this.id = id;
         this.ticketType = ticketType;
         this.purchaseTime = purchaseTime;
         this.user = user;
     }
 
-    public Long getId() {
+    public TicketPurchase() {
+      
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -43,7 +59,6 @@ public class TicketPurchase {
     public User getUser() {
         return user;
     }
-
     public void setUser(User user) {
         this.user = user;
     }
@@ -57,5 +72,7 @@ public class TicketPurchase {
                 ", user=" + user.getName() +
                 '}';
     }
+
+    
 
 }

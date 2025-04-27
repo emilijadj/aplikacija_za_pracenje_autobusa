@@ -5,26 +5,26 @@ import java.util.List;
 
 public class Line {
 
-    private Long id;
+    private int id;
     private String name;
     private List<Bus> buses;
 
-    public Line(Long id, String name) {
+    public Line(int id, String name) {
         this.id = id;
         this.name = name;
         this.buses = new ArrayList<>();
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     public String getName() {
-        return name;
+        return name;    
     }
 
     public void setName(String name) {

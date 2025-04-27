@@ -4,13 +4,13 @@ import java.time.LocalDateTime;
 
 public class BusLocation {
     
-    private Long id;
+    private int id;
     private double latitude;
     private double longitude;
     private LocalDateTime timestamp;
     private Bus bus;
 
-    public BusLocation(Long id, double latitude, double longitude, LocalDateTime timestamp, Bus bus) {
+    public BusLocation(int id, double latitude, double longitude, LocalDateTime timestamp, Bus bus) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -18,11 +18,11 @@ public class BusLocation {
         this.bus = bus;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -63,7 +63,7 @@ public class BusLocation {
         return "BusLocation{" +
                 "id=" + id +
                 ", latitude=" + latitude +
-                ", longitude=" + longitude +
+                ", intitude=" + longitude +
                 ", timestamp=" + timestamp +
                 ", bus=" + bus.getRegistrationNumber() +
                 '}';

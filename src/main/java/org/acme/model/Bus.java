@@ -4,25 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class Bus {
 
-    private Long id;
+    private int id;
     private String registrationNumber;
     private List<BusLocation> locations;
     private List<Line> lines;
 
-    public Bus(Long id, String registrationNumber) {
+    public Bus(int id, String registrationNumber) {
         this.id = id;
         this.registrationNumber = registrationNumber;
         this.locations = new ArrayList<>();
         this.lines = new ArrayList<>();
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
