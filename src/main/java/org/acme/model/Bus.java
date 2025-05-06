@@ -1,64 +1,58 @@
 package org.acme.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
-
-
+@Entity
 public class Bus {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	@Column(name = "registration_number")
+	private String registrationNumber;
 
-    private int id;
-    private String registrationNumber;
-    private List<BusLocation> locations;
-    private List<Line> lines;
+	@ManyToOne
+	@JoinColumn(name = "line_id")
+	private Line lines;
 
-    public Bus(int id, String registrationNumber) {
-        this.id = id;
-        this.registrationNumber = registrationNumber;
-        this.locations = new ArrayList<>();
-        this.lines = new ArrayList<>();
-    }
+	public Bus() {
+		super();
+	}
 
-    public int getId() {
-        return id;
-    }
+	public Bus(String registrationNumber, Line lines) {
+		super();
+		this.registrationNumber = registrationNumber;
+		this.lines = lines;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public String getRegistrationNumber() {
-        return registrationNumber;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
-    }
+	public String getRegistrationNumber() {
+		return registrationNumber;
+	}
 
-    public List<BusLocation> getLocations() {
-        return locations;
-    }
+	public void setRegistrationNumber(String registrationNumber) {
+		this.registrationNumber = registrationNumber;
+	}
 
-    public void addLocation(BusLocation location) {
-        this.locations.add(location);
-    }
+	public Line getLines() {
+		return lines;
+	}
 
-    public List<Line> getLines() {
-        return lines;
-    }
+	public void setLines(Line lines) {
+		this.lines = lines;
+	}
 
-    public void addLine(Line line) {
-        this.lines.add(line);
-    }
-
-    @Override
-    public String toString() {
-        return "Bus{" +
-                "id=" + id +
-                ", registrationNumber='" + registrationNumber + '\'' +
-                ", locations=" + locations +
-                ", lines=" + lines +
-                '}';
-    }
-
+	
 }
